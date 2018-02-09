@@ -93,6 +93,7 @@ func (s *Server) handleReviewEvent(l *logrus.Entry, re github.ReviewEvent) {
 			Number:       re.PullRequest.Number,
 			Repo:         re.Repo,
 			User:         re.Review.User,
+			ReviewState:  re.Review.State,
 			IssueAuthor:  re.PullRequest.User,
 			Assignees:    re.PullRequest.Assignees,
 			IssueState:   re.PullRequest.State,

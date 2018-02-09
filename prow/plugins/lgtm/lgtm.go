@@ -76,9 +76,9 @@ func handle(gc githubClient, log *logrus.Entry, e *github.GenericCommentEvent) e
 	// If we create an "/lgtm" comment, add lgtm if necessary.
 	// If we create a "/lgtm cancel" comment, remove lgtm if necessary.
 	wantLGTM := false
-	if lgtmRe.MatchString(e.Body) {
+	if lgtmRe.MatchString(e.Body) || e.ReviewState == "APPROVE" {
 		wantLGTM = true
-	} else if lgtmCancelRe.MatchString(e.Body) {
+	} else if lgtmCancelRe.MatchString(e.Body) || e.ReviewState == "REQUEST_CHANGES"{
 		wantLGTM = false
 	} else {
 		return nil
