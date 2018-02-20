@@ -538,13 +538,11 @@ type GenericCommentEvent struct {
 	Number       int
 	Repo         Repo
 	User         User
-	ReviewState  string
 	IssueAuthor  User
 	Assignees    []User
 	IssueState   string
 	IssueBody    string
 	IssueHTMLURL string
-
 }
 
 // Milestone is a milestone defined on a github repository
